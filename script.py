@@ -31,7 +31,7 @@ NOTE: Download may take some time! So please wait for it to complete!"""
 ⭕️<b>Library :</b> <a href='https://docs.pyrogram.org/'>Pyrogram 1.0.7</a>"""
 
 
-   DONATE_TEXT = """<b>Thanks for showing interest in donation!</b>
+    DONATE_TEXT = """<b>Thanks for showing interest in donation!</b>
 
 🎁 To donate and support me you can send any amount as you wish
 
