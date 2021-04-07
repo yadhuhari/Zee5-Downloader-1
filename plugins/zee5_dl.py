@@ -24,7 +24,9 @@ from script import script
 from database.database import *
 
 from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.types import ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton
+from pyrogram.errors import UserNotParticipant, UserBannedInChannel
+
 
 from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
@@ -51,6 +53,22 @@ async def zee5_capture(bot, update):
             revoke=True
         )
         return
+   update_channel = Config.UPDATE_CHANNEL
+    if update_channel:
+        try:
+            user = await bot.get_chat_member(update_channel, update.chat.id)
+            if user.status == "kicked":
+               await update.reply_text("🤭 Sorry Dude, You are **B A N N E D**. If you feel You are not guilty please contact @HeimanTGBotSupport_bot")
+               return
+        except UserNotParticipant:
+            #await update.reply_text(f"Join @{update_channel} To Use Me")
+            await update.reply_text(
+                text="**Join My Updates Channel to use me & Enjoy the Free Service**",
+                reply_markup=InlineKeyboardMarkup([
+                    [ InlineKeyboardButton(text="Join Our Updates Channel", url=f"https://t.me/{update_channel}")]
+              ])
+            )
+            return
 
     logger.info(update.from_user.id)
     
