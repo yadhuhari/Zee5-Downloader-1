@@ -45,7 +45,6 @@ from plugins.helpers import(
 
 @Client.on_message(filters.private & filters.regex(pattern=".*http.*"))
 async def zee5_capture(bot, update):
-
     if update.from_user.id in Config.BANNED_USERS:
         await bot.delete_messages(
             chat_id=update.chat.id,
@@ -53,8 +52,8 @@ async def zee5_capture(bot, update):
             revoke=True
         )
         return
-   update_channel = Config.UPDATE_CHANNEL
-   if update_channel:
+   update_channel = vkprojects
+    if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
@@ -68,8 +67,7 @@ async def zee5_capture(bot, update):
                     [ InlineKeyboardButton(text="Join Our Updates Channel", url=f"https://t.me/{update_channel}")]
               ])
             )
-            return
-
+            return 
     logger.info(update.from_user.id)
     
     if "zee5" in update.text:
