@@ -54,7 +54,7 @@ async def zee5_capture(bot, update):
         )
         return
    update_channel = Config.UPDATE_CHANNEL
-    if update_channel:
+   if update_channel:
         try:
             user = await bot.get_chat_member(update_channel, update.chat.id)
             if user.status == "kicked":
