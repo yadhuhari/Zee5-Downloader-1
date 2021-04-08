@@ -68,7 +68,7 @@ Every contribution matters 😇"""
     
     NO_THUMB = "SED😕 No saved thumbnails Found!!"
     
-    CUSTOM_CAPTION_UL_FILE = "<b>{newname}\n\n©️ @TroJanzHEX</b>"
+    CUSTOM_CAPTION_UL_FILE = "<b>{newname}\n\n©️ @VKPROJECTS</b>"
     
     TIMEOUT = "<b><i>Sorry for the delay. It'll help reduce the flood wait</i> 😇\n\nWait for {} sec and try again.</b>"
     
