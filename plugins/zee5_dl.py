@@ -52,10 +52,9 @@ async def zee5_capture(bot, update):
             revoke=True
         )
         return
-   update_channel = vkprojects
-    if update_channel:
+    if Config.UPDATE_CHANNEL:
         try:
-            user = await bot.get_chat_member(update_channel, update.chat.id)
+            user = await bot.get_chat_member(Config.UPDATE_CHANNEL, update.chat.id)
             if user.status == "kicked":
                await update.reply_text("🤭 Sorry Dude, You are **B A N N E D**.")
                return
@@ -64,10 +63,14 @@ async def zee5_capture(bot, update):
             await update.reply_text(
                 text="**Join My Updates Channel to use me & Enjoy the Free Service**",
                 reply_markup=InlineKeyboardMarkup([
-                    [ InlineKeyboardButton(text="Join Our Updates Channel", url=f"https://t.me/{update_channel}")]
-              ])
+                    [ InlineKeyboardButton(text="Join Our Updates Channel", url=f"https://telegram.me/{Config.UPDATE_CHANNEL}")]
+                ])
             )
             return 
+        except Exception as error:
+            print(error)
+            await update.reply_text("Something wrong contact support group")
+            return
     logger.info(update.from_user.id)
     
     if "zee5" in update.text:
