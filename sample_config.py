@@ -19,6 +19,9 @@ class Config(object):
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = "./DOWNLOADS"
 
+    # Update channel for force subscription
+    UPDATE_CHANNEL = "vkprojects"
+    
     # Telegram maximum file upload size
     TG_MAX_FILE_SIZE = 2097152000
 
